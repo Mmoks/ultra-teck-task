@@ -1,0 +1,24 @@
+<div class="wrapper row">
+  <div class="col-12">
+    <ng-select
+      [items]="items"
+      [formControl]="tags"
+      [multiple]="true"
+      [searchable]="true"
+      [addTag]="addTag"
+    ></ng-select>
+  </div>
+  <div class="col-12">
+    <app-images-list
+      *ngIf="{
+        gifs: giphyService.gifs$ | async,
+        pagination: giphyService.pagination$ | async
+      } as data"
+      [gifs]="data.gifs"
+      [limit]="9"
+      [totalItems]="data.pagination?.total_count"
+      [currentPage]="currentPage"
+      (loadNewPage)="loadNewPage($event)"
+    ></app-images-list>
+  </div>
+</div>

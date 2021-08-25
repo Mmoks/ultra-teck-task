@@ -1,0 +1,14 @@
+<div class="images-list row">
+  <div *ngFor="let item of gifs; trackBy: trackItem" class="image-list__item col-4">
+    <img [src]="item.images.fixed_height_small.url | safeUrl" />
+  </div>
+</div>
+<div class="pagination">
+  <pagination
+    *ngIf="totalItems"
+    [totalItems]="totalItems"
+    [formControl]="currentPage"
+    [maxSize]="limit"
+    (pageChanged)="onPageChange($event)"
+  ></pagination>
+</div>

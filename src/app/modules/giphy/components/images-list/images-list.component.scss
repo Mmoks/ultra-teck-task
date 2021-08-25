@@ -1,0 +1,13 @@
+.image-list {
+  &__item {
+    padding-top: 10px;
+    img {
+      width: 100%;
+      height: 200px;
+    }
+  }
+}
+
+.pagination {
+  padding-top: 15px;
+}
