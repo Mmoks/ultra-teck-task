@@ -1,12 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 import { Giphy } from '../../models/giphy.model';
@@ -17,19 +9,13 @@ import { Giphy } from '../../models/giphy.model';
   styleUrls: ['./images-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ImagesListComponent implements OnInit, OnChanges {
+export class ImagesListComponent {
   @Input() gifs: Giphy[] | null = [];
   @Input() totalItems?: number;
   @Input() limit?: number;
   @Input() currentPage: FormControl;
 
   @Output() loadNewPage = new EventEmitter<number>();
-
-  constructor() {}
-
-  ngOnInit(): void {}
-
-  ngOnChanges() {}
 
   trackItem(index: number, item: Giphy): string {
     return item.id;
